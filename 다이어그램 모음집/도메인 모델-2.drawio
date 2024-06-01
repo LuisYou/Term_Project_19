@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-06-01T09:20:38.782Z" agent="Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:126.0) Gecko/20100101 Firefox/126.0" etag="Za4DMJBDVaSmiJJN9sj_" version="24.4.13" type="github">
+<mxfile host="app.diagrams.net" modified="2024-06-01T09:45:11.733Z" agent="Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:126.0) Gecko/20100101 Firefox/126.0" etag="ezokypUN3u__sRMjMXcW" version="24.4.13" type="github">
   <diagram name="페이지-1" id="9HjSiC2texN9nbrq-5UL">
     <mxGraphModel dx="942" dy="1031" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="2336" math="0" shadow="0">
       <root>
@@ -132,7 +132,7 @@
         <mxCell id="LOnVfcYUxJo5r36CS54z-45" value="Status" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="630" y="520" width="140" height="90" as="geometry" />
         </mxCell>
-        <mxCell id="LOnVfcYUxJo5r36CS54z-46" value="CurrentState" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="LOnVfcYUxJo5r36CS54z-45" vertex="1">
+        <mxCell id="LOnVfcYUxJo5r36CS54z-46" value="CurrentStatus" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="LOnVfcYUxJo5r36CS54z-45" vertex="1">
           <mxGeometry y="30" width="140" height="30" as="geometry" />
         </mxCell>
         <mxCell id="LOnVfcYUxJo5r36CS54z-47" value="UpdatedDate" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="LOnVfcYUxJo5r36CS54z-45" vertex="1">
@@ -179,8 +179,8 @@
         <mxCell id="LOnVfcYUxJo5r36CS54z-61" value="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="368" y="350" width="20" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="LOnVfcYUxJo5r36CS54z-62" value="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="770" y="715" width="20" height="30" as="geometry" />
+        <mxCell id="LOnVfcYUxJo5r36CS54z-62" value="0..*" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="811" y="730" width="20" height="30" as="geometry" />
         </mxCell>
         <mxCell id="LOnVfcYUxJo5r36CS54z-63" value="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="472" y="350" width="20" height="30" as="geometry" />
@@ -221,8 +221,20 @@
         <mxCell id="LOnVfcYUxJo5r36CS54z-74" value="Is-a-part-of" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="570" y="630" width="88" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="dGFebPo51V-6uwEYXbUf-1" value="&lt;div&gt;STATE변화&lt;/div&gt;&lt;div&gt;1.new -&amp;gt; system&lt;/div&gt;&lt;div&gt;2. assgined -&amp;gt; system&lt;/div&gt;&lt;div&gt;3.fixed -&amp;gt; DEV&lt;/div&gt;&lt;div&gt;4. resolved -&amp;gt; Tester&lt;/div&gt;&lt;div&gt;5. closed -&amp;gt; PL &lt;br&gt;&lt;/div&gt;&lt;div&gt;(그러니 1:1 맞음)&lt;br&gt;&lt;/div&gt;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;fontColor=#000000;darkOpacity=0.05;fillColor=#FFF9B2;strokeColor=none;fillStyle=solid;direction=west;gradientDirection=north;gradientColor=#FFF2A1;shadow=1;size=20;pointerEvents=1;" vertex="1" parent="1">
-          <mxGeometry x="110" y="780" width="140" height="160" as="geometry" />
+        <mxCell id="dGFebPo51V-6uwEYXbUf-1" value="&lt;div&gt;STATE변화 &lt;br&gt;1:1 인가&lt;br&gt;&lt;/div&gt;&lt;div&gt;1.new -&amp;gt; system&lt;/div&gt;&lt;div&gt;2. assgined -&amp;gt; system&lt;/div&gt;&lt;div&gt;3.fixed -&amp;gt; DEV&lt;/div&gt;&lt;div&gt;4. resolved -&amp;gt; Tester&lt;/div&gt;&lt;div&gt;5. closed -&amp;gt; PL &lt;br&gt;&lt;/div&gt;&lt;div&gt;(그러니 1:1 맞음)&lt;br&gt;&lt;/div&gt;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;fontColor=#000000;darkOpacity=0.05;fillColor=#FFF9B2;strokeColor=none;fillStyle=solid;direction=west;gradientDirection=north;gradientColor=#FFF2A1;shadow=1;size=20;pointerEvents=1;" vertex="1" parent="1">
+          <mxGeometry x="115.5" y="810" width="140" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="dGFebPo51V-6uwEYXbUf-3" value="&lt;div&gt;changes status&lt;/div&gt;&lt;div&gt;issue - status가 한정&lt;br&gt;거기에 유저가 붙으니깐&lt;br&gt;1 ~ 0...1 &lt;br&gt;&lt;/div&gt;&lt;div&gt;issue랑 status가 1:4(x)&lt;br&gt;--&amp;gt; 왜 아닌가 이슈 1개당 하나의 status여야 하니까&lt;/div&gt;&lt;div&gt;1:4 &lt;br&gt;버튼을 누르는 시점이라고 &lt;br&gt;생각하면 한사람당 하나씩 바꾸는 게 맞는 것 같다&lt;br&gt;1:1&lt;br&gt;&lt;/div&gt;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;fontColor=#000000;darkOpacity=0.05;fillColor=#FFF9B2;strokeColor=none;fillStyle=solid;direction=west;gradientDirection=north;gradientColor=#FFF2A1;shadow=1;size=20;pointerEvents=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="810" width="320" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="dGFebPo51V-6uwEYXbUf-4" value="0..*" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="330" y="563" width="20" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="dGFebPo51V-6uwEYXbUf-5" value="0..*" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="581" y="732" width="20" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="dGFebPo51V-6uwEYXbUf-6" value="&lt;div&gt;role 마다와 issue간의 연결(PL/DEV/TESTER)&lt;/div&gt;&lt;div&gt;TESTER는 create issue&lt;/div&gt;&lt;div&gt;DEV는 fix&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;PL과 DEV연결해서 issue를 그 사이에 또 표현하기&lt;/div&gt;&lt;div&gt;n대n의 관계일때 필요하다 - company랑 person인데&lt;br&gt;PL이 여러 DEV를 assign된다. &lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;fontColor=#000000;darkOpacity=0.05;fillColor=#FFF9B2;strokeColor=none;fillStyle=solid;direction=west;gradientDirection=north;gradientColor=#FFF2A1;shadow=1;size=20;pointerEvents=1;" vertex="1" parent="1">
+          <mxGeometry x="620" y="840" width="320" height="190" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
