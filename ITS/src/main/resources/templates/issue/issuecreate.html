@@ -1,4 +1,9 @@
 <!DOCTYPE HTML>
+<!--
+	Exponent by Pixelarity
+	pixelarity.com | hello@pixelarity.com
+	License: pixelarity.com/license
+-->
 
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -26,9 +31,9 @@
 
 	<nav id="nav" >
 		<ul>
-			<li><a href="issueform.html">이슈생성</a></li>
+			<li><a th:href="/issueCreate">이슈생성</a></li>
 
-			<li><a href="findissue.html">이슈찾기</a></li> 
+			<li><a th:href="/issueList">이슈찾기</a></li> 
 			
 		</ul>
 	</nav>
@@ -47,36 +52,49 @@
 
 	<!-- Content || 제목/ description/ priority -->
 	<section id="content">
-		<form method="post" th:action="@{/createOk}">	<!--action 부분에 데이터를 보낼 서버페이지 주소 입력-->
+
+		<form method="post" th:action="@{/issueCreate}" th:object="${issueDto}">	<!--action 부분에 데이명터를 보낼 서버페이지 주소 입력-->
 			<div class="row uniform 50%">
+				<div class="12u$">프로젝트명
+					<div class="12u$">
+						<select th:field ="*{projectName}" value="assign" id="se" >
+									
+							<option value="none" selected>해당하는 프로젝트를 고르세요</option>
+							<option th:text="${project.projectName}" th:value="${project.projectName}" >SE 2024</option> <!--우선 보이긴 해야 할 것같아서 SE2024로 적어두었습니다-->
+							<option value="none" disabled>룰루랄라 신나는 소프트웨어공학</option>
+							<option value="none" disabled>소프트웨어로 세상 정복하기</option>
+							<option value="none" disabled>어디웨어 소프트웨어</option>
+							
+						</select>
+					</div>
+				</div>
 				<div class="12u$">이슈 제목
 					<div class="12u$">
-						<input type="text" name="title" id="title" th:field="*{title}" placeholder="제목을 적어주세요" required/> 
-						<!--value값 없애고, 기존의 name="title"로 구성되어 있떤 것 th:field로 바꿔보았습니다-->
+						<input type="text" th:field="*{title}" id="title"  placeholder="제목을 적어주세요" required/>
 					</div>
 				</div>
 			</div>
 			<div class="row uniform 50%">
 				<div class="12u$">이슈 상세내용
 					<div class="12u$">
-						<textarea name="description" id="description" th:field="*{description}" placeholder="이슈의 description을 상세하게 적어주세요" rows="8" required></textarea>
+						<textarea th:field="*{description}" name="description" id="message" placeholder="이슈의 description을 상세하게 적어주세요" rows="8" required></textarea>
 					</div>
 				</div>
 			</div>
-			<div class="row uniform 50%" id="priority"> <!--수정: 여기서 박스 처리 필요할듯-색처럼//수정완>다같이 확인 후에 -->
+
+			<div class="row uniform 50%" th:field="*{priority}" id="priority"> <!--값이 제대로 넘어갔는지 체크 필요할 듯-->
 				<div class="12u$">이슈의 중대성</div>
-
+				
 				<div class="4u 12u$(small)">
-					<input type="radio" th:field="*{priority}" th:value="*{priority.name()}" name=" high" id="priority-high">
-
+					<input type="radio" id="priority-high"  name="priority" value="high" >
 					<label for="priority-high">긴급</label>
 				</div>
 				<div class="4u 12u$(small)">
-					<input type="radio" th:field="*{priority}" th:value="*{priority.name()}" id="priority-normal" name="normal" checked>
+					<input type="radio" id="priority-normal" name="priority" value="normal"  checked>
 					<label for="priority-normal">보통</label>
 				</div>
 				<div class="4u$ 12u$(small)">
-					<input type="radio"  th:field="*{priority}" th:value="*{priority.name()}" id="priority-low" name="low">
+					<input type="radio" id="priority-low"  name="priority" value="low">
 					<label for="priority-low">여유</label>
 				</div>
 			</div>
