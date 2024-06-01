@@ -51,14 +51,15 @@
 			<div class="row uniform 50%">
 				<div class="12u$">이슈 제목
 					<div class="12u$">
-						<input type="text" name="title" id="title" value="" placeholder="제목을 적어주세요" required/>
+						<input type="text" name="title" id="title" th:field="*{title}" placeholder="제목을 적어주세요" required/> 
+						<!--value값 없애고, 기존의 name="title"로 구성되어 있떤 것 th:field로 바꿔보았습니다-->
 					</div>
 				</div>
 			</div>
 			<div class="row uniform 50%">
 				<div class="12u$">이슈 상세내용
 					<div class="12u$">
-						<textarea name="description" id="description" placeholder="이슈의 description을 상세하게 적어주세요" rows="8" required></textarea>
+						<textarea name="description" id="description" th:field="*{description}" placeholder="이슈의 description을 상세하게 적어주세요" rows="8" required></textarea>
 					</div>
 				</div>
 			</div>
@@ -66,16 +67,16 @@
 				<div class="12u$">이슈의 중대성</div>
 
 				<div class="4u 12u$(small)">
-					<input type="radio" id="priority-high" name="priority">
+					<input type="radio" th:field="*{priority}" th:value="*{priority.name()}" name=" high" id="priority-high">
 
 					<label for="priority-high">긴급</label>
 				</div>
 				<div class="4u 12u$(small)">
-					<input type="radio" id="priority-normal" name="priority" checked>
+					<input type="radio" th:field="*{priority}" th:value="*{priority.name()}" id="priority-normal" name="normal" checked>
 					<label for="priority-normal">보통</label>
 				</div>
 				<div class="4u$ 12u$(small)">
-					<input type="radio" id="priority-low" name="priority">
+					<input type="radio"  th:field="*{priority}" th:value="*{priority.name()}" id="priority-low" name="low">
 					<label for="priority-low">여유</label>
 				</div>
 			</div>
