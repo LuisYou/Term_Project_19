@@ -12,14 +12,4 @@ public interface UserService {
     public Optional<User> findById(int id);
     public Optional<User> findByName(String name);
     public Optional<User> findByRole(String role);
-
-    default User dtoToEntity(UserDto dto){
-        User entity = User.builder()
-                .Userid(dto.getUserId())
-                .password(dto.getPassword())
-                .name(dto.getName())
-                .role(dto.getRole())
-                .build();
-        return entity;
-    }
 }

@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-
 public interface ProjectRepository {
     void saveProject(ProjectDto dto);
     List<Project> findAll();

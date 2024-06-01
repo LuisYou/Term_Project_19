@@ -11,7 +11,6 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-@RequiredArgsConstructor
 public class UserServiceImpl implements UserService{
     @Autowired
     private UserRepository userRepository;
@@ -37,9 +36,5 @@ public class UserServiceImpl implements UserService{
     @Override
     public Optional<User> findByRole(String role) {
         return userRepository.findByRole(role);
-    }
-    @Override
-    public User dtoToEntity(UserDto dto) {
-        return UserService.super.dtoToEntity(dto);
     }
 }

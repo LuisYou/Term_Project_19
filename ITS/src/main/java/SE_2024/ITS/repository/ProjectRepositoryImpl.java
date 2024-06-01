@@ -5,10 +5,11 @@ import SE_2024.ITS.dto.ProjectDto;
 import SE_2024.ITS.entity.Issue;
 import SE_2024.ITS.entity.Project;
 import jakarta.persistence.EntityManager;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
-
+@Repository
 public class ProjectRepositoryImpl implements ProjectRepository{
     private EntityManager em;
     public ProjectRepositoryImpl(EntityManager em){

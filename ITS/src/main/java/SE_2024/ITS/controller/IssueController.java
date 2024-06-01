@@ -19,14 +19,14 @@ public class IssueController {
         this.issueService = issueService;
     }
 
-    @PostMapping("/issueCreate")
+    @GetMapping("/issueCreate")
     public String createIssuePage(){
-        return "issue/issueCreate";
+        return "issue/issuecreate";
     }
     @PostMapping("/createOk")
     public String createIssue(IssueDto issueDto){
         issueService.saveIssue(issueDto);
-        return "redirect:/issueCreate";
+        return "redirect:/issuecreate";
     }
     @GetMapping("/issueList")
     public String issueList(Model model){

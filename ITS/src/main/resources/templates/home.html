@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head lang="ko" xmlns:th="http://www.thymeleaf.org">
 
   <title>소프트웨어공학 19조</title>
@@ -110,7 +110,7 @@
     <h2>우리의 여정을 더 깊게 팔로업하고 싶다면?</h2>
     <p>과정별, 타임라인별 여정을 함께해요!</p>
     <ul class="actions">
-      <li><a href="issuecreate.html" class="button big special">보러가기</a></li>
+      <li><a th:href="@{/issueCreate}" class="button big special">보러가기</a></li>
     </ul>
   </section>
 
