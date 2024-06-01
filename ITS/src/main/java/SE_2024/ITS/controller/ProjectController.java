@@ -6,6 +6,7 @@ import SE_2024.ITS.entity.Project;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -22,9 +23,13 @@ public class ProjectController {
         this.projectService = projectService;
     }
     @RequestMapping("/projectCreate")
+    public String createProjectPage(){
+        return "project/projectcreate";
+    }
+    @PostMapping("/createOk")
     public String createProject(ProjectDto projectDto){
         projectService.saveProject(projectDto);
-        return "project/projectCreate";
+        return "redirect:projectcreate";
     }
     @RequestMapping("/projectList")
     public String projectList(Model model){

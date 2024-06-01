@@ -6,13 +6,13 @@ import java.time.LocalDate;
 
 public class UserDto {
     private int UserId;
-    private Long password;
+    private Long password; //프론트(계정 생성 페이지) 입력 필요
     private LocalDate createdDate;
 
-    private String name;
-    private LocalDate birth;
-    private String eMail;
-    private String address;
+    private String name; //프론트(계정 생성 페이지) 입력 필요
+    private LocalDate birth; //프론트(계정 생성 페이지) 입력 필요
+    private String eMail; //프론트(계정 생성 페이지) 입력 필요
+    private String address; //프론트(계정 생성 페이지) 입력 필요
     private String role;
     public int getUserId() {
         return UserId;
