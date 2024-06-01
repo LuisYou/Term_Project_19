@@ -1,13 +1,7 @@
 package SE_2024.ITS.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -16,13 +10,14 @@ import java.util.List;
 
 @Entity
 @Data
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
+@Builder
 public class Issue {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String project;
+    private String projectName;
     private String title;
     @CreationTimestamp
     private LocalDate reportedDate;
@@ -40,7 +35,7 @@ public class Issue {
     public Issue(int id, String project, String title, LocalDate reportedDate,
                  String reporter, String status, int priority, String description){
         this.id = id;
-        this.project = project;
+        this.projectName = project;
         this.title = title;
         this.reportedDate = reportedDate;
         this.reporter = reporter;

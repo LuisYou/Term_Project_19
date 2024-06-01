@@ -1,7 +1,11 @@
 package SE_2024.ITS.dto;
 
+import SE_2024.ITS.entity.Issue;
+import lombok.Builder;
+
 import java.time.LocalDate;
 import java.util.List;
+
 
 public class IssueDto {
     private int issueId;
@@ -116,5 +120,41 @@ public class IssueDto {
 
     public void setPriority(int priority) {
         this.priority = priority;
+    }
+    @Builder
+    public class IssueSaveRequestDto{
+        private String title;
+        private String projectName;
+        private String reporter;
+        private String description;
+        private LocalDate reportedDate;
+        public IssueSaveRequestDto(String title, String projectName, String reporter, String description,
+                                        LocalDate reportedDate){
+            this.title = title;
+            this.projectName = projectName;
+            this.reporter = reporter;
+            this.description = description;
+            this.reportedDate = reportedDate;
+        }
+        public Issue toEntity(){
+            return Issue.builder()
+                    .title(title)
+                    .projectName(projectName)
+                    .reporter(reporter)
+                    .description(description)
+                    .reportedDate(reportedDate)
+                    .build();
+
+        }
+        public IssueSaveRequestDto toDto(Issue issue){
+            return IssueSaveRequestDto.builder()
+                    .title(issue.getTitle())
+                    .projectName(issue.getProjectName())
+                    .reporter(issue.getReporter())
+                    .description(issue.getDescription())
+                    .reportedDate(issue.getReportedDate())
+                    .build();
+        }
+
     }
 }

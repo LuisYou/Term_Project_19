@@ -1,10 +1,8 @@
 package SE_2024.ITS.controller;
 
 import SE_2024.ITS.Service.IssueServiceImpl;
-import SE_2024.ITS.dto.CommentDto;
 import SE_2024.ITS.dto.IssueDto;
 import SE_2024.ITS.entity.Issue;
-import SE_2024.ITS.entity.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -26,6 +24,7 @@ public class IssueController {
     @PostMapping("/createOk")
     public String createIssue(IssueDto issueDto){
         issueService.saveIssue(issueDto);
+        System.out.println(issueDto.getTitle());
         return "redirect:/issuecreate";
     }
     @GetMapping("/issueList")

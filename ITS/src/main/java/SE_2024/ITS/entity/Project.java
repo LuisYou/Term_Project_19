@@ -3,15 +3,12 @@ package SE_2024.ITS.entity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDate;
 @Entity
 @Data
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 public class Project {
     @Id
@@ -20,5 +17,4 @@ public class Project {
     private String projectName;
     private LocalDate createdDate;
     private LocalDate expiredDate;
-
 }
