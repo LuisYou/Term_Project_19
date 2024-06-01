@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-06-01T09:45:11.733Z" agent="Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:126.0) Gecko/20100101 Firefox/126.0" etag="ezokypUN3u__sRMjMXcW" version="24.4.13" type="github">
+<mxfile host="app.diagrams.net" modified="2024-06-01T10:27:55.520Z" agent="Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:126.0) Gecko/20100101 Firefox/126.0" etag="A2l6oSsYTU8T2wF2Lb4k" version="24.4.13" type="github">
   <diagram name="페이지-1" id="9HjSiC2texN9nbrq-5UL">
     <mxGraphModel dx="942" dy="1031" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="2336" math="0" shadow="0">
       <root>
@@ -109,11 +109,6 @@
         <mxCell id="LOnVfcYUxJo5r36CS54z-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;startArrow=diamondThin;startFill=1;startSize=15;" parent="1" source="LOnVfcYUxJo5r36CS54z-24" target="LOnVfcYUxJo5r36CS54z-32" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="LOnVfcYUxJo5r36CS54z-40" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=diamondThin;startFill=0;endArrow=none;endFill=0;startSize=15;" parent="1" source="LOnVfcYUxJo5r36CS54z-30" target="LOnVfcYUxJo5r36CS54z-9" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="430" y="400" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
         <mxCell id="LOnVfcYUxJo5r36CS54z-41" value="Comment" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="630" y="670" width="140" height="150" as="geometry" />
         </mxCell>
@@ -212,9 +207,6 @@
         <mxCell id="LOnVfcYUxJo5r36CS54z-71" value="Is-a-part-of" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="230" y="565" width="88" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="LOnVfcYUxJo5r36CS54z-72" value="creates" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="370" y="450" width="60" height="30" as="geometry" />
-        </mxCell>
         <mxCell id="LOnVfcYUxJo5r36CS54z-73" value="1..*" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="171" y="480" width="29" height="30" as="geometry" />
         </mxCell>
@@ -233,8 +225,14 @@
         <mxCell id="dGFebPo51V-6uwEYXbUf-5" value="0..*" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="581" y="732" width="20" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="dGFebPo51V-6uwEYXbUf-6" value="&lt;div&gt;role 마다와 issue간의 연결(PL/DEV/TESTER)&lt;/div&gt;&lt;div&gt;TESTER는 create issue&lt;/div&gt;&lt;div&gt;DEV는 fix&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;PL과 DEV연결해서 issue를 그 사이에 또 표현하기&lt;/div&gt;&lt;div&gt;n대n의 관계일때 필요하다 - company랑 person인데&lt;br&gt;PL이 여러 DEV를 assign된다. &lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;fontColor=#000000;darkOpacity=0.05;fillColor=#FFF9B2;strokeColor=none;fillStyle=solid;direction=west;gradientDirection=north;gradientColor=#FFF2A1;shadow=1;size=20;pointerEvents=1;" vertex="1" parent="1">
+        <mxCell id="dGFebPo51V-6uwEYXbUf-6" value="&lt;div&gt;role 마다와 issue간의 연결(PL/DEV/TESTER)&lt;/div&gt;&lt;div&gt;TESTER는 create issue&lt;/div&gt;&lt;div&gt;DEV는 fix&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;creates를 search이런걸로 바꾸고, &lt;br&gt;DEV를 담당하고/ Tester가 create하고/ &lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;이슈에 관여하는 유저들이 잇을텐데, 1명 이상이니깐,&lt;br&gt;1명이상인 이유는 tester create 이슈가 만들어지니깐&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;fontColor=#000000;darkOpacity=0.05;fillColor=#FFF9B2;strokeColor=none;fillStyle=solid;direction=west;gradientDirection=north;gradientColor=#FFF2A1;shadow=1;size=20;pointerEvents=1;" vertex="1" parent="1">
           <mxGeometry x="620" y="840" width="320" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="dGFebPo51V-6uwEYXbUf-7" value="" style="endArrow=none;html=1;rounded=0;entryX=0.457;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.457;exitY=0.011;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="LOnVfcYUxJo5r36CS54z-30" target="LOnVfcYUxJo5r36CS54z-9">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="570" y="580" as="sourcePoint" />
+            <mxPoint x="620" y="530" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
