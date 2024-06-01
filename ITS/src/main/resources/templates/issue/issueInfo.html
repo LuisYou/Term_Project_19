@@ -1,0 +1,230 @@
+
+<!DOCTYPE HTML>
+<!--
+	Exponent by Pixelarity
+	pixelarity.com | hello@pixelarity.com
+	License: pixelarity.com/license
+-->
+<html lang="ko" xmlns:th="https://www.thymeleaf.org">
+<head>
+
+
+    <title>소프트웨어공학 19조</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="assets/css/main.css" />
+
+    <style> body {background-color:blanchedalmond;
+		#content{background-color:rgb(255, 255, 255); padding:10px;margin:-2em;}
+		.major p{color:white;}.new_comment{background-color:beige; color:black;padding:1em;margin-right:2em;}
+		#comments{background-color:rgba(253, 253, 247, 0.692); color:black; padding:1em;margin-right:5em;}
+		#s{float:right;background-color: rgb(255, 255, 255); color:rgb(53, 53, 53); text-align:center;
+			width:4em;  height:3em;padding-left:1em;
+		} #s:hover{background-color:rgb(255, 194, 80); box-shadow:inset 0 0 0 1px #d4ab24; color:white !important;}
+		#nav{margin-right:18em;text-align:left;}		#se{float:left; width:80%;height:3em;}}
+		</style>
+</head>
+<body id="subpage2">
+
+<!-- Header -->
+<header id="header">
+    <div class="logo-container">
+        <div class="logo">
+            <img src='images/logo.png' width="50"></div>
+        <h1><a href="index.html">software19조</a></h1>
+    </div>
+
+
+    <nav id="nav" >
+        <ul>
+            <li><a href="issueform.html">이슈생성</a></li>
+
+            <li><a href="findissue.html">이슈찾기</a></li>
+
+        </ul>
+    </nav>
+
+
+
+
+</header>
+
+<!-- Main -->
+<div id="main" class="container">
+
+    <div class="row 70%" id="content"> <!--여기 board는 우리 팀에 맞게 수정필요-->
+        <div class="8u 12u$(medium)">
+
+            <!-- 이슈 생성 당시의 내용 -->
+            <section >
+                <br>
+                <h3 th:text="${issue.title}">이슈의 제목 <img src="images/new_status.png"alt="stauts" text-align="center"></h3>
+                <!--여기는 현재 이슈의 상태 받아와서 이미지 출력<img th:src="&{${img.getImage()}}"alt="stauts">-->
+                <span th:text="${issue.description}">
+								<h4 id="description" th:text="${issue.description}">
+									&nbsp 이슈 설명 내용
+								</h4>
+								<hr>
+								<div id="comments"> <!--이미 올린 코멘트들-->
+									<dl>
+										<dt th:text="${comment.id}">코멘트 작성자, 작성날짜</dt>
+										<dd th:text="${comment.comment}">코멘트 내용</dd>
+
+									</dl>
+									<hr style="border:dashed 0.1px; color:rgb(216, 216, 216)">
+
+								</div>
+
+								<br>
+								<hr>
+                    <!--코멘트 내용(단 사람, 시간)+ 코멘트 달기(input-textarea, 발행버튼)-->
+								<div class="new_comment">
+									<h4>코멘트 작성</h4>
+									<form method="post">
+										<div class="12u$">
+
+										<textarea name="comment" id="comment" placeholder="comment 내용을 적어주세요" rows="4" required></textarea>
+
+										</div>
+
+										<input type="submit" value="발행" id="s">
+										<br>
+									</form>
+
+
+								</div>
+
+								<br>
+            </section>
+
+
+
+
+
+        </div>
+
+        <div class="4u$ 12u$"  >
+            <br>
+            <h4>구체적 내용</h4>
+            <table> <!--값 가져와서 넣기 (값이 있다면!)-->
+                <tr>
+                    <td>중대성</td>
+                    <td th:text="${issue.priority}">      </td>
+                </tr>
+                <tr>
+                    <td>assignee</td>
+                    <td th:text="${issue.assignee}">      </td>
+                </tr>
+                <tr>
+                    <td>assigned date</td>
+                    <td th:text="${issue.assigned date}">      </td>
+                </tr>
+                <tr>
+                    <td>reporter</td>
+                    <td th:text="${issue.reporter}">     </td>
+                </tr>
+                <tr>
+                    <td>report date</td>
+                    <td th:text="${issue.report date}">      </td>
+                </tr>
+
+            </table>
+
+            <div id="assginD" >
+                <h4>DEV assign하기</h4>
+                <form method="post" name="assign" >
+
+                    <select name="assign하기" value="assign" id="se" >
+
+                        <option value="none" selected>DEV assign하기</option>
+                        <option value="dev1">DEV1</option>
+                        <option value="dev2">DEV2</option>
+                        <option value="dev3">DEV3</option>
+                        <option value="dev4">DEV4</option>
+                        <option value="dev5">DEV5</option>
+                    </select>
+
+
+                    <input type="submit" value="등록" id="s">
+
+                </form>
+            </div>
+
+
+            <br>
+            <br>
+
+            <div id="changestatus"> <!--엇 여기도 post 넣어줘야 된다..!-->
+                <h4>이슈상태 변경</h4>
+                <form method="post">
+                    <input type="button" value="change status" >
+                </form>
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+    </div>
+</div>
+
+<!-- Footer -->
+<footer id="footer">
+    <div class="container">
+        <div class="row">
+            <section class="6u 12u$(medium) about">
+                <h2>더욱 효과적인 협업관계를 <br />도와주는 툴
+                </h2>
+                <p>최고의 수업 소프트웨어 공학과 함께하세요 </p>
+                <ul class="actions">
+                    <li><a class="button">contact</a></li>
+                </ul>
+            </section>
+            <section class="6u 12u$(small)">
+                <h3>Updates</h3>
+                <ul class="updates">
+                    <li>
+                        <p><a href="#">핫치토스 가져오다 밀수범으로 오해받아...</a></p>
+                        <span class="timestamp">Posted 2 hours ago</span>
+                    </li>
+                    <li>
+                        <p><a href="#">생성형 AI로 핫치토스 구애곡을 만들어보자</a></p>
+                        <span class="timestamp">Posted 6 hours ago</span>
+                    </li>
+                    <li>
+                        <p><a href="#">우리집 외국과자점에서 핫치토스가 사라지다...</a></p>
+                        <span class="timestamp">Posted 10 hours ago</span>
+                    </li>
+
+                </ul>
+            </section>
+
+        </div>
+    </div>
+    <div class="copyright container">
+        <p>copyrights in 소프트웨어공학 수업 19조</p>
+        <p>&copy; 소공19조. All rights reserved.</p>
+        <ul class="menu">
+            <li><a href="#">Terms of Use</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+    </div>
+</footer>
+
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/skel.min.js"></script>
+<script src="assets/js/util.js"></script>
+<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>
