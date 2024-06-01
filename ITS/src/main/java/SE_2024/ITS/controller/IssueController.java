@@ -26,7 +26,7 @@ public class IssueController {
     @PostMapping("/createOk")
     public String createIssue(IssueDto issueDto){
         issueService.saveIssue(issueDto);
-        return "redirect:/issue";
+        return "redirect:/issueCreate";
     }
     @GetMapping("/issueList")
     public String issueList(Model model){
@@ -36,7 +36,7 @@ public class IssueController {
     @RequestMapping("/issueInfo")
     public ModelAndView view(@RequestParam int issueId){
         Optional<Issue> issue = issueService.findById(issueId);
-        return new ModelAndView("user/info","user", issue);
+        return new ModelAndView("issue/info","issue", issue);
     }
     @RequestMapping("/comment")
     public String comment(){

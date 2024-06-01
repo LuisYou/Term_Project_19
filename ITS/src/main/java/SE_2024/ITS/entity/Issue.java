@@ -33,16 +33,20 @@ public class Issue {
     private String fixer;
     private boolean assigned;
     private String assignee;
+
+    private String description;
     private List<String> comments;
     private String status;
     private int priority;
-    public Issue(int id, String project, String title, LocalDate reportedDate, String reporter, String status, int priority){
+    public Issue(int id, String project, String title, LocalDate reportedDate,
+                 String reporter, String status, int priority, String description){
         this.id = id;
         this.project = project;
         this.title = title;
         this.reportedDate = reportedDate;
         this.reporter = reporter;
         this.status = status;
+        this.description = description;
         this.priority = priority;
     }
 

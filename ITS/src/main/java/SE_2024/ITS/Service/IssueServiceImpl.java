@@ -49,5 +49,4 @@ public class IssueServiceImpl implements IssueService{
     public void regComment(IssueDto dto) {
 
     }
-
 }

@@ -13,6 +13,7 @@
     <bytecodeTargetLevel>
       <module name="ITS.ITS.main" target="17" />
       <module name="ITS.ITS.test" target="17" />
+      <module name="SE_2024.ITS.main~2" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -13,6 +13,7 @@ public class IssueDto {
     private String fixer;
     private boolean assigned;
     private String assignee;
+    private String description;
     private List<String> comments;
     private String status;
     private int priority;
@@ -85,6 +86,12 @@ public class IssueDto {
 
     public void setAssignee(String assignee) {
         this.assignee = assignee;
+    }
+    public String getDescription(){
+        return description;
+    }
+    public void setDescription(String description){
+        this.description = description;
     }
 
     public List<String> getComments() {

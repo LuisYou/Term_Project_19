@@ -29,15 +29,4 @@ public class User {
     private String address;
     private String role;
 
-    public User(int userid, Long password, LocalDate createdDate, String name,
-                LocalDate birth, String eMail, String address, String role) {
-        Userid = userid;
-        this.password = password;
-        this.createdDate = createdDate;
-        this.name = name;
-        this.birth = birth;
-        this.eMail = eMail;
-        this.address = address;
-        this.role = role;
-    }
 }
