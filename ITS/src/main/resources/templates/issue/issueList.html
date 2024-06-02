@@ -23,8 +23,7 @@
 	#search{background-color:white; font-weight:bold; width:73%; align-content:center; float:left; margin-left:5em; height:3.3em; 
 	}#find{float:right;margin-right:7em; color:white;} table{text-align:center;}  table th {color: #202020;
 	font-size: 1.1em; font-weight: bold; padding: 0 0.75em 0.75em 0.75em; text-align: center;} a{color:rgb(99, 99, 99);}a:hover{color:blue;}
-	header a:hover{color:white !important;}
-	
+	header a:hover{color:white;}
 	</style>
 </head>
 <body>
@@ -40,9 +39,9 @@
 
 	<nav id="nav" >
 		<ul>
+			<li><a href="/issueTarget">나의 이슈</a></li>
 			<li><a href="/issueCreate">이슈생성</a></li>
-
-			<li><a href="/issueList">이슈찾기</a></li> 
+			<li><a href="/issueSearch">이슈찾기</a></li> 
 			
 		</ul>
 	</nav>
@@ -55,7 +54,7 @@
 <!-- Main -->
 <div class="searcharea" >
 	<h2>이슈 검색하기</h2>
-	<form method="post" action="">
+	<form method="post" action="/issueList">
 		<div class="container 80%">
 		<input type="text" name="search" id="search" value=""  placeholder="키워드로 이슈를 검색해보세요" required />
 		<input type="submit" value="찾기" id="find" style="color:white;">
@@ -79,16 +78,16 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr th:each="issue, status : ${result}">
-				<th scope="row">1</th>
-				<td th:text="${issue.title}"> 
-					<a th:href="@{/board/view(id=${issue.id})}" href="issuedetail_PL.html">
+			<tr th:each="issue, issueList : ${result}">
+				<th scope="row" th:text="${issueList.index"}>1</th>
+				<td th:text="${issueList.title}"> 
+					<a th:href="@{/board/view(id=${issue.id})}" >
 						이슈의 제목이 여기에 들어가면 됩니다
 					</a>
 				</td>
-				<td th:text="${issue.status}">new</td>
-				<td th:text="${issue.reporter}">@mdo</td>
-				<td th:text="${issue.priority}">긴급</td>
+				<td th:text="${issueList.status}">new</td>
+				<td th:text="${issueList.reporter}">@mdo</td>
+				<td th:text="${issueList.priority}">긴급</td>
 				
 			</tr>
 		</tbody>
@@ -102,6 +101,7 @@
 <footer id="footer">
 	<div class="container">
 		<div class="row">
+			
 			<section class="6u 12u$(medium) about">
 				<h2>더욱 효과적인 협업관계를 <br />도와주는 툴
 				</h2>
@@ -117,7 +117,7 @@
 								<li>
 									<h4 class="icon alt fa-home"><span class="label">Address</span></h4>
 									<span>서울시 동작구 흑석동<br />
-									중앙대학교, 소프트웨어공학 화 분반</span>
+										중앙대학교, 소프트웨어공학 화 분반</span>
 								</li>
 								<li>
 									<h4 class="icon alt fa-envelope"><span class="label">Email</span></h4>
@@ -133,8 +133,6 @@
 			
 		</div>
 	</div>
-	<div c
-
 			
 		</div>
 	</div>
