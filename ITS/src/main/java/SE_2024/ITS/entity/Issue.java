@@ -15,31 +15,31 @@ import java.util.List;
 @Builder
 public class Issue {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int issueId;
-    private String projectName;
+    @GeneratedValue
+    private Long issueId;
+    @Column(nullable = false)
     private String title;
     @CreationTimestamp
+    @Column(nullable = false)
     private LocalDate reportedDate;
+    @Column(nullable = false)
     private String reporter;
     @UpdateTimestamp
     private LocalDate fixedDate;
     private String fixer;
     private boolean assigned;
     private String assignee;
+
+    private List<String> comment;
     private String description;
-    private Status status;
-    private enum Priority {
-        NORMAL, EMERGENCY
-    }
-    public Issue(int issueId, String project, String title, LocalDate reportedDate,
+    private String status;
+    private String priority;
+    public Issue(Long issueId, String title, LocalDate reportedDate,
                  String reporter, String description){
         this.issueId = issueId;
-        this.projectName = project;
         this.title = title;
         this.reportedDate = reportedDate;
         this.reporter = reporter;
-        status = Status.NEW; //생성시 기본값으로 NEW 설정
         this.description = description;
     }
 }

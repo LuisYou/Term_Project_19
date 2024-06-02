@@ -18,7 +18,7 @@ public class IssueServiceImpl implements IssueService{
     }
     @Override
     public void saveIssue(IssueDto dto){
-        issueRepository.saveIssue(dto);
+        issueRepository.saveIssue(dto.toEntity());
     }
     @Override
     public List<Issue> findIssue(){
@@ -41,12 +41,11 @@ public class IssueServiceImpl implements IssueService{
         return issueRepository.findByStatus(status);
     }
     @Override
-    public void updateStatus(IssueDto dto) {
-
+    public void updateStatus(IssueDto dto, String status) {
+        dto.setStatus(status);
     }
 
     @Override
-    public void regComment(IssueDto dto) {
-
+    public void regComment(IssueDto dto, String comment) {
     }
 }

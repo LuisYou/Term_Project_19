@@ -14,8 +14,8 @@ public class JpaIssueRepositoryImpl implements IssueRepository{
         this.em = em;
     }
     @Override
-    public void saveIssue(IssueDto issueDto) {
-        em.persist(issueDto);
+    public void saveIssue(Issue issue) {
+        em.persist(issue);
     }
     @Override
     public List<Issue> findAll() {

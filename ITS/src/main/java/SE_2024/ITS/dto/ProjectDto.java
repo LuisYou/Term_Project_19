@@ -1,43 +1,31 @@
 package SE_2024.ITS.dto;
 
-import java.time.LocalDate;
+import SE_2024.ITS.entity.Project;
+import lombok.*;
 
+import java.time.LocalDate;
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class ProjectDto {
 
-    private int projectId;
+    private Long projectId;
     private String projectName; //프론트(프로젝트 생성 페이지) 입력 필요
     private LocalDate createdDate;
     private LocalDate expiredDate;
-
-    public int getProjectId() {
-        return projectId;
+    public Project toEntity(){
+        Project build = Project.builder()
+                .projectName(projectName)
+                .build();
+        return build;
     }
-
-    public void setProjectId(int projectId) {
+    /*@Builder
+    public ProjectDto(Long projectId, String projectName, LocalDate createdDate, LocalDate expiredDate){
         this.projectId = projectId;
-    }
-
-    public String getProjectName() {
-        return projectName;
-    }
-
-    public void setProjectName(String projectName) {
         this.projectName = projectName;
-    }
-
-    public LocalDate getCreatedDate() {
-        return createdDate;
-    }
-
-    public void setCreatedDate(LocalDate createdDate) {
         this.createdDate = createdDate;
-    }
-
-    public LocalDate getExpiredDate() {
-        return expiredDate;
-    }
-
-    public void setExpiredDate(LocalDate expiredDate) {
         this.expiredDate = expiredDate;
-    }
+    } AllArgsConstructor 달았으므로 생성자 필요 없음 */
 }

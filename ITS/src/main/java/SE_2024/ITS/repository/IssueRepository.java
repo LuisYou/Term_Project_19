@@ -9,7 +9,7 @@ import java.util.Optional;
 
 @Repository
 public interface IssueRepository {
-    void saveIssue(IssueDto issueDto);
+    void saveIssue(Issue issue);
     List<Issue> findAll();
     Optional<Issue> findById(int id);
     Optional<Issue> findByTitle(String title);

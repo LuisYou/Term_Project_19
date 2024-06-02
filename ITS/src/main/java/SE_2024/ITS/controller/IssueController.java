@@ -42,8 +42,8 @@ public class IssueController {
         return "issue/comment";
     }
     @RequestMapping("/commentOk")
-    public String commentOk(@ModelAttribute IssueDto issueDto){
-        issueService.regComment(issueDto);
+    public String commentOk(@ModelAttribute IssueDto issueDto, String comment){
+        issueService.regComment(issueDto, comment);
         return "redirect:/issue/issueList";
     }
 

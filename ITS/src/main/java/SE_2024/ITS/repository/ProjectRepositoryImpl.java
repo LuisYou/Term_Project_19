@@ -16,8 +16,8 @@ public class ProjectRepositoryImpl implements ProjectRepository{
         this.em = em;
     }
     @Override
-    public void saveProject(ProjectDto projectDto) {
-        em.persist(projectDto);
+    public void saveProject(Project project) {
+        em.persist(project);
     }
     @Override
     public List<Project> findAll() {

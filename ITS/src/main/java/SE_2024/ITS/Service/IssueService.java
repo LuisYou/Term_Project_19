@@ -2,7 +2,6 @@ package SE_2024.ITS.Service;
 
 import SE_2024.ITS.dto.IssueDto;
 import SE_2024.ITS.entity.Issue;
-import SE_2024.ITS.repository.IssueRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -20,8 +19,8 @@ public interface IssueService {
 
     public Optional<Issue> findByStatus(String status);
 
-    public void updateStatus(IssueDto dto);
+    void updateStatus(IssueDto dto, String status);
 
-    public void regComment(IssueDto dto);
+    public void regComment(IssueDto dto, String comment);
 }
 

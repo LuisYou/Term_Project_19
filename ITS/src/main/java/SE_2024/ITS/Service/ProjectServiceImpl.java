@@ -19,7 +19,7 @@ public class ProjectServiceImpl implements ProjectService{
 
     @Override
     public void saveProject(ProjectDto dto) {
-        projectRepository.saveProject(dto);
+        projectRepository.saveProject(dto.toEntity());
     }
     @Override
     public List<Project> findProject() {

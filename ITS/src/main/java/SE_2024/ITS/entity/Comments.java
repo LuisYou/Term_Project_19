@@ -1,6 +1,8 @@
 package SE_2024.ITS.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -15,8 +17,7 @@ import java.util.List;
 @AllArgsConstructor
 public class Comments {
     @Id
-    private int commentsId;
-    private int issueId;
+    @GeneratedValue
+    private Long commentsId;
     private List<String> comments;
-    private String assignee;
 }

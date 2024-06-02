@@ -9,8 +9,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Controller
 public class HomeController {
-    @GetMapping("home")
+    @GetMapping("index")
     public String indexView(){
+        return "index";
+    }
+    @GetMapping("home")
+    public String homeView(){
         return "home";
     }
 

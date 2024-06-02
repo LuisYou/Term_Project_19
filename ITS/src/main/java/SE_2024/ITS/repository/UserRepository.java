@@ -11,8 +11,7 @@ import java.util.Optional;
 public interface UserRepository {
     void saveUser(User user);
     List<User> findAll();
-    Optional<User> findById(int id);
+    Optional<User> findById(int userId);
     Optional<User> findByName(String name);
     Optional<User> findByRole(String role);
-
 }

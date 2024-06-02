@@ -1,8 +1,6 @@
 package SE_2024.ITS.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import java.time.LocalDate;
@@ -14,13 +12,19 @@ import java.time.LocalDate;
 public class User {
     @Id
     @GeneratedValue
-    private int Userid;
+    private Long Userid;
+    @Column(nullable = false)
     private Long password;
     @CreationTimestamp
+    @Column(nullable = false)
     private LocalDate createdDate;
+    @Column(nullable = false)
     private String name;
+    @Column
     private LocalDate birth;
+    @Column
     private String eMail;
+    @Column
     private String address;
-    private Role role;
+    private String role;
 }
