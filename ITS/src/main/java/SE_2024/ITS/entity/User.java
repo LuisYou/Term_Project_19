@@ -12,7 +12,7 @@ import java.time.LocalDate;
 public class User {
     @Id
     @GeneratedValue
-    private Long Userid;
+    private Long id;
     @Column(nullable = false)
     private Long password;
     @CreationTimestamp
@@ -26,5 +26,12 @@ public class User {
     private String eMail;
     @Column
     private String address;
+    @Column
     private String role;
+    @Builder
+    public User(Long id, Long password, String name){
+        this.id = id;
+        this.password = password;
+        this.name = name;
+    }
 }

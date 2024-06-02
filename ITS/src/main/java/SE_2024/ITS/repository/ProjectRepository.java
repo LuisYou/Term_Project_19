@@ -9,10 +9,9 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface ProjectRepository {
-    void saveProject(Project project);
-    List<Project> findAll();
-    Optional<Project> findById(int id);
-    Optional<Project> findByTitle(String title);
-
+public interface ProjectRepository extends JpaRepository<Project,Long> {
+//    void saveProject(Project project);
+//    List<Project> findAll();
+//    Optional<Project> findById(int id);
+//    Optional<Project> findByTitle(String title);
 }

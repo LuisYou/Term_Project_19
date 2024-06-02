@@ -10,7 +10,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserDto {
-    private Long UserId;
+    private Long id;
     private Long password; //프론트(계정 생성 페이지) 입력 필요
     private LocalDate createdDate;
     private String name; //프론트(계정 생성 페이지) 입력 필요

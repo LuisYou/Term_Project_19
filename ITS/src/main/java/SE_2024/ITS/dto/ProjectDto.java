@@ -11,7 +11,7 @@ import java.time.LocalDate;
 @Builder
 public class ProjectDto {
 
-    private Long projectId;
+    private Long id;
     private String projectName; //프론트(프로젝트 생성 페이지) 입력 필요
     private LocalDate createdDate;
     private LocalDate expiredDate;

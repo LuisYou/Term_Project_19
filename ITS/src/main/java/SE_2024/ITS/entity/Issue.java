@@ -16,7 +16,7 @@ import java.util.List;
 public class Issue {
     @Id
     @GeneratedValue
-    private Long issueId;
+    private Long id;
     @Column(nullable = false)
     private String title;
     @CreationTimestamp
@@ -25,21 +25,27 @@ public class Issue {
     @Column(nullable = false)
     private String reporter;
     @UpdateTimestamp
+    @Column
     private LocalDate fixedDate;
+    @Column
     private String fixer;
     private boolean assigned;
+    @Column
     private String assignee;
 
+    @Column
     private List<String> comment;
+    @Column
     private String description;
+    @Column
     private String status;
+    @Column
     private String priority;
-    public Issue(Long issueId, String title, LocalDate reportedDate,
-                 String reporter, String description){
-        this.issueId = issueId;
+    @Builder
+    public Issue(Long id, String title, String description, String priority){
+        this.id = id;
         this.title = title;
-        this.reportedDate = reportedDate;
-        this.reporter = reporter;
         this.description = description;
+        this.priority = priority;
     }
 }

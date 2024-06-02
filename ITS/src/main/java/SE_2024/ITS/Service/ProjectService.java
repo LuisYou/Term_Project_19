@@ -12,7 +12,7 @@ public interface ProjectService {
     public void saveProject(ProjectDto dto);
     public List<Project> findProject();
 
-    public Optional<Project> findByTitle(String Title);
+//    public Optional<Project> findByTitle(String Title);
 
-    public Optional<Project> findById(int id);
+    public Optional<Project> findById(Long id);
 }

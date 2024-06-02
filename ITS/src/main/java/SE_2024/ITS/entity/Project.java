@@ -16,7 +16,7 @@ import java.util.List;
 public class Project {
     @Id
     @GeneratedValue
-    private Long projectId;
+    private Long id;
     @Column(nullable = false)
     private String projectName;
     @CreatedDate

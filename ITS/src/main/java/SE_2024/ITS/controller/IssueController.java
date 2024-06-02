@@ -24,7 +24,7 @@ public class IssueController {
     @PostMapping("/createOk")
     public String createIssue(IssueDto issueDto){
         issueService.saveIssue(issueDto);
-        System.out.println(issueDto.getTitle());
+        System.out.println("ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd");
         return "redirect:/issuecreate";
     }
     @GetMapping("/issueList")
