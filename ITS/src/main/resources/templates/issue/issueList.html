@@ -1,10 +1,161 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<!--
+	Exponent by Pixelarity
+	pixelarity.com | hello@pixelarity.com
+	License: pixelarity.com/license
+-->
+
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-        <title>Title</title>
+	
+	<!--END Google tag-->
+
+	<title>소프트웨어공학 19조</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	
+	<style>.searcharea{background-color:rgb(26, 118, 255); height: 16em; text-align:center;}
+	.searcharea h2{padding-top:2em;color:white;} .searcharea p{padding-top:0;margin-top:0;}
+	#search{background-color:white; font-weight:bold; width:73%; align-content:center; float:left; margin-left:5em; height:3.3em; 
+	}#find{float:right;margin-right:7em; color:white;} table{text-align:center;}  table th {color: #202020;
+	font-size: 1.1em; font-weight: bold; padding: 0 0.75em 0.75em 0.75em; text-align: center;} a{color:rgb(99, 99, 99);}a:hover{color:blue;}
+	header a:hover{color:white !important;}
+	
+	</style>
 </head>
 <body>
+
+<!-- Header -->
+<header id="header">
+	<div class="logo-container">
+		<div class="logo">
+		<img src='images/logo.png' width="50"></div>
+		<h1><a href="/home">software19조</a></h1>					
+	</div>
+	
+
+	<nav id="nav" >
+		<ul>
+			<li><a href="/issueCreate">이슈생성</a></li>
+
+			<li><a href="/issueList">이슈찾기</a></li> 
+			
+		</ul>
+	</nav>
+
+	
+		
+	
+</header>
+
+<!-- Main -->
+<div class="searcharea" >
+	<h2>이슈 검색하기</h2>
+	<form method="post" action="">
+		<div class="container 80%">
+		<input type="text" name="search" id="search" value=""  placeholder="키워드로 이슈를 검색해보세요" required />
+		<input type="submit" value="찾기" id="find" style="color:white;">
+		
+		</div>
+	</form>
+
+</div>
+
+
+<div id="main" class="container 80%">
+	<table class="table table-striped">
+		
+		<thead>
+			<tr>
+				<th scope="col">#</th>
+				<th scope="col">제목</th>
+				<th scope="col">이슈상태</th>
+				<th scope="col">작성자</th>
+				<th scope="col">중대성</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="issue, status : ${result}">
+				<th scope="row">1</th>
+				<td th:text="${issue.title}"> 
+					<a th:href="@{/board/view(id=${issue.id})}" href="issuedetail_PL.html">
+						이슈의 제목이 여기에 들어가면 됩니다
+					</a>
+				</td>
+				<td th:text="${issue.status}">new</td>
+				<td th:text="${issue.reporter}">@mdo</td>
+				<td th:text="${issue.priority}">긴급</td>
+				
+			</tr>
+		</tbody>
+	</table>
+	<!--출처: https://hnev.tistory.com/7 [Hnev.log:티스토리]-->
+	
+	
+</div>
+
+<!-- Footer -->
+<footer id="footer">
+	<div class="container">
+		<div class="row">
+			<section class="6u 12u$(medium) about">
+				<h2>더욱 효과적인 협업관계를 <br />도와주는 툴
+				</h2>
+				<p>최고의 수업 소프트웨어 공학과 함께하세요 </p>
+				<ul class="actions">
+					<li><a class="button">contact</a></li>
+				</ul>
+			</section>
+			<section class="6u 12u$(small)">
+				<h3>Get in touch</h3>
+							<ul class="labeled-icons">
+								
+								<li>
+									<h4 class="icon alt fa-home"><span class="label">Address</span></h4>
+									<span>서울시 동작구 흑석동<br />
+									중앙대학교, 소프트웨어공학 화 분반</span>
+								</li>
+								<li>
+									<h4 class="icon alt fa-envelope"><span class="label">Email</span></h4>
+									<a href="#">SEteam19@gmail.com</a>
+								</li>
+								<li>
+									<h4 class="icon alt fa-facebook"><span class="label">Facebook</span></h4>
+									<a href="#">https://github.com/Term_Project_19</a>
+								</li>
+				
+							</ul>
+			</section>
+			
+		</div>
+	</div>
+	<div c
+
+			
+		</div>
+	</div>
+	<div class="copyright container">
+		<p>copyrights in 소프트웨어공학 수업 19조</p>
+		<p>&copy; 소공19조. All rights reserved.</p>
+		<ul class="menu">
+			<li><a href="#">Terms of Use</a></li>
+			<li><a href="#">Privacy Policy</a></li>
+			<li><a href="#">Contact Us</a></li>
+		</ul>
+	</div>
+</footer>
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/skel.min.js"></script>
+<script src="assets/js/util.js"></script>
+<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+<script src="assets/js/main.js"></script>
 
 </body>
 </html>
