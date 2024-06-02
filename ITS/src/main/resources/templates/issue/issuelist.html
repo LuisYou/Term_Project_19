@@ -55,12 +55,15 @@
 <!-- Main -->
 <div class="searcharea" >
 	<h2>이슈 검색하기</h2>
-	<form method="post" action="">
+	<form method="post" action="/issueInfoTitle">
 		<div class="container 80%">
-		<input type="text" name="search" id="search" value=""  placeholder="키워드로 이슈를 검색해보세요" required />
-		<input type="submit" value="찾기" id="find" style="color:white;">
+		<!-<input type="text" name="title" id="search" placeholder="키워드로 이슈를 검색해보세요" required />
+		<input type="submit"  value="찾기" id="find" style="color:white;">
 		
 		</div>
+	</form>
+	<form method="post" action="/issueList">
+		<input type="submit" value="전체조회">
 	</form>
 
 </div>
@@ -79,17 +82,16 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr th:each="issue, status : ${result}">
-				<th scope="row">1</th>
-				<td th:text="${issue.title}"> 
-					<a th:href="@{/board/view(id=${issue.id})}" href="issuedetail_PL.html">
-						이슈의 제목이 여기에 들어가면 됩니다
-					</a>
+			<tr th:each="issue : ${issueList}">
+				<td th:text="${issue.id}"></td>
+				<td th:text="${issue.title}">
+<!--					<a th:href="@{/board/view(id=${issue.id})}" href="issuedetail_PL.html">-->
+<!--						이슈의 제목이 여기에 들어가면 됩니다-->
+<!--					</a>-->
 				</td>
-				<td th:text="${issue.status}">new</td>
-				<td th:text="${issue.reporter}">@mdo</td>
-				<td th:text="${issue.priority}">긴급</td>
-				
+				<td th:text="${issue.status}"></td>
+				<td th:text="${issue.reporter}"></td>
+				<td th:text="${issue.priority}"></td>
 			</tr>
 		</tbody>
 	</table>

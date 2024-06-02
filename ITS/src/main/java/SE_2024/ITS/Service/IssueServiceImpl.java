@@ -21,16 +21,17 @@ public class IssueServiceImpl implements IssueService{
         issueRepository.save(dto.toEntity());
     }
     @Override
-    public List<Issue> findIssue(){
+    public List<Issue> findAll(){
         return issueRepository.findAll();
     }
-//    @Override
-//    public Optional<Issue> findByTitle(String title){
-//        return issueRepository.findByTitle(title);
-//    }
+
+    @Override
+    public Optional<Issue> findByTitle(String title){
+        return issueRepository.findIssueByTitle(title);
+    }
     @Override
     public Optional<Issue> findById(Long id){
-        return issueRepository.findById(id);
+        return issueRepository.findIssueById(id);
     }
 //    @Override
 //    public Optional<Issue> findByAssignee(String assignee){

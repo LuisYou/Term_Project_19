@@ -28,6 +28,7 @@ public class ProjectController {
     @PostMapping("/pcreateOk")
     public String createProject(ProjectDto projectDto){
         projectService.saveProject(projectDto);
+        System.out.println("============================SAVE PROJECT==========================");
         return "redirect:/projectCreate";
     }
     @GetMapping("/projectList")

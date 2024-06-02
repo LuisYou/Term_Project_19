@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -24,19 +25,41 @@ public class IssueController {
     @PostMapping("/createOk")
     public String createIssue(IssueDto issueDto){
         issueService.saveIssue(issueDto);
-        System.out.println("ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd");
-        return "redirect:/issuecreate";
+        System.out.println("============================SAVE ISSUE=================================");
+        return "redirect:/issueCreate";
     }
-    @GetMapping("/issueList")
+    @GetMapping("/issueSearch")
+    public String getSelectPage(){
+        return "issue/issuesearch";
+    }
+    @PostMapping("/issueList")
     public String issueList(Model model){
-        model.addAttribute("issueList", issueService.findIssue());
-        return "issue/issueList";
+        model.addAttribute("issueList", issueService.findAll());
+        System.out.println("=======================findAll====================");
+        return "issue/issuelist";
     }
-    @RequestMapping("/issueInfo")
-    public ModelAndView view(@RequestParam Long issueId){
-        Optional<Issue> issue = issueService.findById(issueId);
-        return new ModelAndView("issue/info","issue", issue);
-    }
+//    @PostMapping("/issueSearchOk")
+//    public String issueSearchOk(Model model, String keyWord){
+//        if(keyWord == null){
+//            List<Issue> list = issueService.findAllIssue();
+//        } else {
+//            Optional<Issue> list = issueService.findByTitle(keyWord);
+//        }
+//        model.addAttribute("issueList", list);
+//        return "issue/issuelist";
+//    }
+
+//    @PostMapping("/issueInfoId")
+//    public ModelAndView view(@RequestParam Long issueId){
+//        Optional<Issue> issue = issueService.findById(issueId);
+//        return new ModelAndView("issue/issuelist","issueList", issue);
+//    }
+//    @PostMapping("/issueInfoTitle")
+//    public ModelAndView view(@RequestParam String title){
+//        Optional<Issue> issue = issueService.findByTitle(title);
+//        System.out.println("===================findByTitle========================");
+//        return new ModelAndView("issue/issuelist","issueList", issue);
+//    }
     @RequestMapping("/comment")
     public String comment(){
         return "issue/comment";

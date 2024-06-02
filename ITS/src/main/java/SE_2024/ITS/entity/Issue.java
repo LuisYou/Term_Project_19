@@ -22,13 +22,14 @@ public class Issue {
     @CreationTimestamp
     @Column(nullable = false)
     private LocalDate reportedDate;
-    @Column(nullable = false)
+    @Column
     private String reporter;
     @UpdateTimestamp
     @Column
     private LocalDate fixedDate;
     @Column
     private String fixer;
+    @Column
     private boolean assigned;
     @Column
     private String assignee;

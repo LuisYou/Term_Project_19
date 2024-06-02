@@ -26,9 +26,9 @@
 
 	<nav id="nav" >
 		<ul>
-			<li><a href="issueform.html">이슈생성</a></li>
+			<li><a th:href="@{/issueCreate}">이슈생성</a></li>
 
-			<li><a href="findissue.html">이슈찾기</a></li> 
+			<li><a th:href="@{/issueSearch}">이슈찾기</a></li>
 			
 		</ul>
 	</nav>
@@ -67,16 +67,16 @@
 				<div class="12u$">이슈의 중대성</div>
 
 				<div class="4u 12u$(small)">
-					<input type="radio" name="high" id="priority-high">
+					<input type="radio" name="priority" value="high" id="priority-high">
 
 					<label for="priority-high">긴급</label>
 				</div>
 				<div class="4u 12u$(small)">
-					<input type="radio" id="priority-normal" name="normal" checked>
+					<input type="radio" id="priority-normal" name="priority" value="normal" checked/>
 					<label for="priority-normal">보통</label>
 				</div>
 				<div class="4u$ 12u$(small)">
-					<input type="radio" id="priority-low" name="low">
+					<input type="radio" id="priority-low" name="priority" value="low">
 					<label for="priority-low">여유</label>
 				</div>
 			</div>

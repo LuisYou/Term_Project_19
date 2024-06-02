@@ -9,9 +9,9 @@ import java.util.Optional;
 public interface IssueService {
     public void saveIssue(IssueDto dto);
 
-    public List<Issue> findIssue();
+    public List<Issue> findAll();
 
-//    public Optional<Issue> findByTitle(String Title);
+    public Optional<Issue> findByTitle(String Title);
 
     public Optional<Issue> findById(Long id);
 
