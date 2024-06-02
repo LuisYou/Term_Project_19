@@ -1,0 +1,146 @@
+<!DOCTYPE HTML>
+<!--
+	Exponent by Pixelarity
+	pixelarity.com | hello@pixelarity.com
+	License: pixelarity.com/license
+-->
+
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+	
+	<!--END Google tag-->
+
+	<title>소프트웨어공학 19조</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!--[if lte IE 8]><script src="../../static/assets/js/ie/html5shiv.js"></script><![endif]-->
+	<link rel="stylesheet" href="../../static/assets/css/main.css" />
+	<!--[if lte IE 8]><link rel="stylesheet" href="../../static/assets/css/ie8.css" /><![endif]-->
+	<!--[if lte IE 9]><link rel="stylesheet" href="../../static/assets/css/ie9.css" /><![endif]-->
+</head>
+<body>
+
+<!-- Header -->
+<header id="header">
+	<div class="logo-container">
+		<div class="logo">
+		<img src='../../static/images/logo.png' width="50"></div>
+		<h1><a th:href="/home">software19조</a></h1>					
+	</div>
+	
+
+	<nav id="nav" >
+		<ul>
+			<li><a href="/userCreate">계정생성</a></li>
+
+			
+			
+		</ul>
+	</nav>
+
+	
+		
+	
+</header>
+
+<!-- Main -->
+<div id="main" class="container 75%">
+	<header class="major">
+		<h2>프로젝트 시작하기</h2>
+		<p>프로젝트를 시작해주세요</p>
+	</header>
+
+	<!-- Content || 제목/ description/ priority -->
+	<section id="content">
+
+		<form method="post" th:action="@{/projectCreate}" th:object="${projectDto}">	<!--action 부분에 데이명터를 보낼 서버페이지 주소 입력-->
+			<div class="row uniform 50%">
+				<div class="12u$">프로젝트명
+					<div class="12u$">
+						<input type="text" th:field="*{title}" id="title"  placeholder="프로젝트 이름을 적어주세요" required/>
+					</div>
+				</div>
+				
+				
+			</div>
+			<div class="row uniform 50%">
+				<div class="12u$">프로젝트 마감 날짜를 선택하세요
+					<div class="12u$">
+						<input type="date" th:field="*{expiredDate}" min="2024-06-01" max="2024-12-31" required/>
+					</div>
+				</div>
+			</div>
+			
+
+			<div class="row uniform">
+				<div class="12u$">
+					<ul class="actions align-center">
+						<li><input type="submit" value="이슈 만들기" class="special" /></li>
+						<li><input type="reset" value="새로고침" /></li>
+					</ul>
+				</div>
+			</div>
+
+
+		</form>
+	</section>
+
+</div>
+
+<!-- Footer -->
+<footer id="footer">
+	<div class="container">
+		<div class="row">
+			<section class="6u 12u$(medium) about">
+				<h2>더욱 효과적인 협업관계를 <br />도와주는 툴
+				</h2>
+				<p>최고의 수업 소프트웨어 공학과 함께하세요 </p>
+				<ul class="actions">
+					<li><a class="button">contact</a></li>
+				</ul>
+			</section>
+			<section class="6u 12u$(small)">
+				<h3>Get in touch</h3>
+							<ul class="labeled-icons">
+								
+								<li>
+									<h4 class="icon alt fa-home"><span class="label">Address</span></h4>
+									<span>서울시 동작구 흑석동<br />
+										중앙대학교, 소프트웨어공학 화 분반</span>
+								</li>
+								<li>
+									<h4 class="icon alt fa-envelope"><span class="label">Email</span></h4>
+									<a href="#">SEteam19@gmail.com</a>
+								</li>
+								<li>
+									<h4 class="icon alt fa-facebook"><span class="label">Facebook</span></h4>
+									<a href="#">https://github.com/Term_Project_19</a>
+								</li>
+				
+							</ul>
+			</section>
+			
+		</div>
+	</div>
+	
+	<div class="copyright container">
+		<p>copyrights in 소프트웨어공학 수업 19조</p>
+		<p>&copy; 소공19조. All rights reserved.</p>
+		<ul class="menu">
+			<li><a href="#">Terms of Use</a></li>
+			<li><a href="#">Privacy Policy</a></li>
+			<li><a href="#">Contact Us</a></li>
+		</ul>
+	</div>
+</footer>
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/skel.min.js"></script>
+<script src="assets/js/util.js"></script>
+<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>
