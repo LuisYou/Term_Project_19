@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-06-01T13:47:59.933Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15" etag="Ij1AcDtgEu_r-b5nohUv" version="24.4.13" type="github">
+<mxfile host="app.diagrams.net" modified="2024-06-02T03:22:40.331Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15" etag="MSFRbKL58UXUteKZqb7a" version="24.4.13" type="github">
   <diagram name="페이지-1" id="9HjSiC2texN9nbrq-5UL">
     <mxGraphModel dx="1224" dy="816" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="2336" math="0" shadow="0">
       <root>
@@ -148,7 +148,7 @@
         <mxCell id="LOnVfcYUxJo5r36CS54z-56" value="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="180" y="185" width="20" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="LOnVfcYUxJo5r36CS54z-57" value="1..*" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+        <mxCell id="LOnVfcYUxJo5r36CS54z-57" value="0..*" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="431" y="489" width="29" height="30" as="geometry" />
         </mxCell>
         <mxCell id="LOnVfcYUxJo5r36CS54z-58" value="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
@@ -228,20 +228,26 @@
         <mxCell id="dGFebPo51V-6uwEYXbUf-6" value="&lt;div&gt;role 마다와 issue간의 연결(PL/DEV/TESTER)&lt;/div&gt;&lt;div&gt;TESTER는 create issue&lt;/div&gt;&lt;div&gt;DEV는 fix&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;creates를 search이런걸로 바꾸고, &lt;br&gt;DEV를 담당하고/ Tester가 create하고/ &lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;이슈에 관여하는 유저들이 잇을텐데, 1명 이상이니깐,&lt;br&gt;1명이상인 이유는 tester create 이슈가 만들어지니깐&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;fontColor=#000000;darkOpacity=0.05;fillColor=#FFF9B2;strokeColor=none;fillStyle=solid;direction=west;gradientDirection=north;gradientColor=#FFF2A1;shadow=1;size=20;pointerEvents=1;" parent="1" vertex="1">
           <mxGeometry x="620" y="840" width="320" height="190" as="geometry" />
         </mxCell>
-        <mxCell id="dGFebPo51V-6uwEYXbUf-7" value="" style="endArrow=none;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="LOnVfcYUxJo5r36CS54z-30" target="LOnVfcYUxJo5r36CS54z-9" edge="1">
+        <mxCell id="dGFebPo51V-6uwEYXbUf-7" value="" style="endArrow=none;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;endFill=0;startArrow=classic;startFill=1;" parent="1" source="LOnVfcYUxJo5r36CS54z-30" target="LOnVfcYUxJo5r36CS54z-9" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="570" y="580" as="sourcePoint" />
             <mxPoint x="620" y="530" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="wBWop7no9pvzKEcdhV2P-2" value="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="wBWop7no9pvzKEcdhV2P-2" value="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="609" y="535" width="20" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="wBWop7no9pvzKEcdhV2P-3" value="0..*" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="wBWop7no9pvzKEcdhV2P-3" value="0..*" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="336" y="184" width="20" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="wBWop7no9pvzKEcdhV2P-4" value="0..*" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="wBWop7no9pvzKEcdhV2P-4" value="0..*" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="89" y="489" width="20" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="KEWKhuaikjZtNbFttypm-1" value="searches" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="370" y="440" width="61" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="KEWKhuaikjZtNbFttypm-3" value="1..*" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="431" y="350" width="29" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
