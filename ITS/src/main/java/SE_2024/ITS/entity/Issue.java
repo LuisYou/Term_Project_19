@@ -42,8 +42,7 @@ public class Issue {
     @Column
     private String priority;
     @Builder
-    public Issue(Long id, String title, String description, String priority){
-        this.id = id;
+    public Issue(String title, String description, String priority){
         this.title = title;
         this.description = description;
         this.priority = priority;

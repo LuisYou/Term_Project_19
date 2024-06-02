@@ -30,16 +30,16 @@ public class ProjectController {
         projectService.saveProject(projectDto);
         return "redirect:/projectCreate";
     }
-//    @GetMapping("/projectList")
-//    public String projectList(Model model){
-//        List<Project> list = projectService.findProject();
-//        model.addAttribute("list", list);
-//        return "project/projectList";
-//    }
-//    @GetMapping("/projectInfo")
-//    public ModelAndView view(@RequestParam Long projectId){
-//        Optional<Project> project = projectService.findById(projectId);
-//        return new ModelAndView("project/projectInfo","project", project);
-//    }
+    @GetMapping("/projectList")
+    public String projectList(Model model){
+        List<Project> list = projectService.findProject();
+        model.addAttribute("list", list);
+        return "project/projectList";
+    }
+    @GetMapping("/projectInfo")
+    public ModelAndView view(@RequestParam Long projectId){
+        Optional<Project> project = projectService.findById(projectId);
+        return new ModelAndView("project/projectInfo","project", project);
+    }
 
 }

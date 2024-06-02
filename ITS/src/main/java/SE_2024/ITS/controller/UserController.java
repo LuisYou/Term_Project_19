@@ -31,7 +31,7 @@ public class UserController {
         return "user/userList";
     }
     @RequestMapping("/userInfo")
-    public ModelAndView view(@RequestParam int userId){
+    public ModelAndView view(@RequestParam Long userId){
         Optional<User> user = userService.findById(userId);
         return new ModelAndView("user/info","user", user);
     }

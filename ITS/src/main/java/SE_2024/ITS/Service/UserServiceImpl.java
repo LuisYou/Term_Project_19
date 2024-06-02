@@ -19,22 +19,22 @@ public class UserServiceImpl implements UserService{
     }
     @Override
     public void saveUser(UserDto dto) {
-
+        userRepository.save(dto.toEntity());
     }
     @Override
     public List<User> findUser() {
         return userRepository.findAll();
     }
     @Override
-    public Optional<User> findById(int id) {
+    public Optional<User> findById(Long id) {
         return userRepository.findById(id);
     }
-    @Override
-    public Optional<User> findByName(String name) {
-        return userRepository.findByName(name);
-    }
-    @Override
-    public Optional<User> findByRole(String role) {
-        return userRepository.findByRole(role);
-    }
+//    @Override
+//    public Optional<User> findByName(String name) {
+//        return userRepository.findByName(name);
+//    }
+//    @Override
+//    public Optional<User> findByRole(String role) {
+//        return userRepository.findByRole(role);
+//    }
 }

@@ -11,16 +11,16 @@ public interface IssueService {
 
     public List<Issue> findIssue();
 
-    public Optional<Issue> findByTitle(String Title);
+//    public Optional<Issue> findByTitle(String Title);
 
-    public Optional<Issue> findById(int id);
+    public Optional<Issue> findById(Long id);
 
-    public Optional<Issue> findByAssignee(String assignee);
-
-    public Optional<Issue> findByStatus(String status);
-
-    void updateStatus(IssueDto dto, String status);
-
-    public void regComment(IssueDto dto, String comment);
+//    public Optional<Issue> findByAssignee(String assignee);
+//
+//    public Optional<Issue> findByStatus(String status);
+//
+//    void updateStatus(IssueDto dto, String status);
+//
+//    public void regComment(IssueDto dto, String comment);
 }
 

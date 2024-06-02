@@ -33,7 +33,7 @@ public class IssueController {
         return "issue/issueList";
     }
     @RequestMapping("/issueInfo")
-    public ModelAndView view(@RequestParam int issueId){
+    public ModelAndView view(@RequestParam Long issueId){
         Optional<Issue> issue = issueService.findById(issueId);
         return new ModelAndView("issue/info","issue", issue);
     }
@@ -41,10 +41,10 @@ public class IssueController {
     public String comment(){
         return "issue/comment";
     }
-    @RequestMapping("/commentOk")
-    public String commentOk(@ModelAttribute IssueDto issueDto, String comment){
-        issueService.regComment(issueDto, comment);
-        return "redirect:/issue/issueList";
-    }
+//    @RequestMapping("/commentOk")
+//    public String commentOk(@ModelAttribute IssueDto issueDto, String comment){
+//        issueService.regComment(issueDto, comment);
+//        return "redirect:/issue/issueList";
+//    }
 
 }

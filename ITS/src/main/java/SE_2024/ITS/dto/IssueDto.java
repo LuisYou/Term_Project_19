@@ -27,7 +27,6 @@ public class IssueDto {
 
     public Issue toEntity(){
         return Issue.builder()
-                .id(id)
                 .title(title)
                 .description(description)
                 .priority(priority)

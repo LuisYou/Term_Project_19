@@ -9,7 +9,7 @@ import java.util.Optional;
 public interface UserService {
     public void saveUser(UserDto dto);
     public List<User> findUser();
-    public Optional<User> findById(int id);
-    public Optional<User> findByName(String name);
-    public Optional<User> findByRole(String role);
+    public Optional<User> findById(Long id);
+//    public Optional<User> findByName(String name);
+//    public Optional<User> findByRole(String role);
 }
