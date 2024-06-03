@@ -27,11 +27,11 @@ public class IssueServiceImpl implements IssueService{
 
     @Override
     public Optional<Issue> findByTitle(String title){
-        return issueRepository.findIssueByTitle(title);
+        return issueRepository.findByTitle(title);
     }
     @Override
     public Optional<Issue> findById(Long id){
-        return issueRepository.findIssueById(id);
+        return issueRepository.findById(id);
     }
 //    @Override
 //    public Optional<Issue> findByAssignee(String assignee){

@@ -38,6 +38,32 @@ public class IssueController {
         System.out.println("=======================findAll====================");
         return "issue/issuelist";
     }
+    @GetMapping("/issueInfo") //localhost:8080/issueInfo?id=1
+    public String issueInfo(Long id, Model model){
+        System.out.println("===========================fff==================");
+        model.addAttribute("issueInfo", issueService.findById(id));
+        System.out.println("===============sssssssss===========================");
+        return "issue/issueinfo";
+    }
+    @PostMapping("/issue/{no}")
+    public String issueSearch(@PathVariable int no){
+        String view = null;
+        switch(no){
+            case 1:
+                view = "issue/issueSearchAll";
+                break;
+            case 2:
+                view = "issue/issueSarchKeyword";
+                break;
+        }
+        return view;
+    }
+    @PostMapping(value="send", params="a")
+
+
+
+
+
 //    @PostMapping("/issueSearchOk")
 //    public String issueSearchOk(Model model, String keyWord){
 //        if(keyWord == null){

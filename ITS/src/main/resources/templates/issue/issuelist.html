@@ -55,9 +55,9 @@
 <!-- Main -->
 <div class="searcharea" >
 	<h2>이슈 검색하기</h2>
-	<form method="post" action="/issueInfoTitle">
+	<form method="post" action="/issueList">
 		<div class="container 80%">
-		<!-<input type="text" name="title" id="search" placeholder="키워드로 이슈를 검색해보세요" required />
+		<input type="text" name="keyWord" id="search" placeholder="키워드로 이슈를 검색해보세요" required />
 		<input type="submit"  value="찾기" id="find" style="color:white;">
 		
 		</div>
@@ -84,10 +84,10 @@
 		<tbody>
 			<tr th:each="issue : ${issueList}">
 				<td th:text="${issue.id}"></td>
-				<td th:text="${issue.title}">
-<!--					<a th:href="@{/board/view(id=${issue.id})}" href="issuedetail_PL.html">-->
-<!--						이슈의 제목이 여기에 들어가면 됩니다-->
-<!--					</a>-->
+				<td>
+					<a th:href="@{/issueInfo(id=${issue.id})}">
+						<span th:text="${issue.title}"></span>
+					</a>
 				</td>
 				<td th:text="${issue.status}"></td>
 				<td th:text="${issue.reporter}"></td>

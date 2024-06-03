@@ -1,10 +1,6 @@
 
 <!DOCTYPE HTML>
-<!--
-	Exponent by Pixelarity
-	pixelarity.com | hello@pixelarity.com
-	License: pixelarity.com/license
--->
+
 <html lang="ko" xmlns:th="https://www.thymeleaf.org">
 <head>
 
@@ -57,84 +53,72 @@
         <div class="8u 12u$(medium)">
 
             <!-- 이슈 생성 당시의 내용 -->
-            <section >
+            <section>
                 <br>
-                <h3 th:text="${issue.title}">이슈의 제목 <img src="images/new_status.png"alt="stauts" text-align="center"></h3>
-                <!--여기는 현재 이슈의 상태 받아와서 이미지 출력<img th:src="&{${img.getImage()}}"alt="stauts">-->
-                <span th:text="${issue.description}">
-								<h4 id="description" th:text="${issue.description}">
-									&nbsp 이슈 설명 내용
-								</h4>
-								<hr>
-								<div id="comments"> <!--이미 올린 코멘트들-->
-									<dl>
-										<dt th:text="${comment.id}">코멘트 작성자, 작성날짜</dt>
-										<dd th:text="${comment.comment}">코멘트 내용</dd>
+                <h3 th:text="${issueInfo.title}">이슈의 제목</h3>
+                <!-- 필요한 경우 이미지 출력 -->
+                <!-- <img th:src="@{${img.getImage()}}" alt="status"> -->
+                <!-- <img src="images/new_status.png" alt="status" style="text-align:center"> -->
+                <span>
+        <h4 id="description" th:text="${issueInfo.description}">
+            &nbsp;이슈 설명 내용
+        </h4>
+    </span>
+                <hr>
+                <div id="comments"> <!-- 이미 올린 코멘트들 -->
+                    <!-- 댓글 리스트를 반복 -->
+                    <dl th:if="!{issueInfo.comment}" th:text="null"></dl>
+                    <dl th:each="comment : ${issueInfo.comment}">
 
-									</dl>
-									<hr style="border:dashed 0.1px; color:rgb(216, 216, 216)">
+                        <dt th:text="${comment.id}">코멘트 작성자, 작성날짜</dt>
+                        <dd th:text="${comment.comment}">코멘트 내용</dd>
+                    </dl>
+                    <hr style="border:dashed 0.1px; color:rgb(216, 216, 216)">
+                </div>
 
-								</div>
-
-								<br>
-								<hr>
-                    <!--코멘트 내용(단 사람, 시간)+ 코멘트 달기(input-textarea, 발행버튼)-->
-								<div class="new_comment">
-									<h4>코멘트 작성</h4>
-									<form method="post">
-										<div class="12u$">
-
-										<textarea name="comment" id="comment" placeholder="comment 내용을 적어주세요" rows="4" required></textarea>
-
-										</div>
-
-										<input type="submit" value="발행" id="s">
-										<br>
-									</form>
-
-
-								</div>
-
-								<br>
+                <br>
+                <hr>
+                <!-- 코멘트 작성 폼 -->
+                <div class="new_comment">
+                    <h4>코멘트 작성</h4>
+                    <form method="post">
+                        <div class="12u$">
+                            <textarea name="comment" id="comment" placeholder="comment 내용을 적어주세요" rows="4" required></textarea>
+                        </div>
+                        <input type="submit" value="발행" id="s">
+                        <br>
+                    </form>
+                </div>
+                <br>
             </section>
 
+            <div class="4u$ 12u$">
+                <br>
+                <h4>구체적 내용</h4>
+                <table> <!-- 값 가져와서 넣기 (값이 있다면!) -->
+                    <tr>
+                        <td>중대성</td>
+                        <td th:text="${issueInfo.priority}"></td>
+                    </tr>
+                    <tr>
+                        <td>reporter</td>
+                        <td th:text="${issueInfo.reporter}"></td>
+                    </tr>
+                    <tr>
+                        <td>created date</td>
+                        <td th:text="${issueInfo.reportedDate}"></td>
+                    </tr>
+                    <tr>
+                        <td>assignee</td>
+                        <td th:text="${issueInfo.assignee}"></td>
+                    </tr>
+                </table>
+            </div>
 
-
-
-
-        </div>
-
-        <div class="4u$ 12u$"  >
-            <br>
-            <h4>구체적 내용</h4>
-            <table> <!--값 가져와서 넣기 (값이 있다면!)-->
-                <tr>
-                    <td>중대성</td>
-                    <td th:text="${issue.priority}">      </td>
-                </tr>
-                <tr>
-                    <td>assignee</td>
-                    <td th:text="${issue.assignee}">      </td>
-                </tr>
-                <tr>
-                    <td>assigned date</td>
-                    <td th:text="${issue.assigned date}">      </td>
-                </tr>
-                <tr>
-                    <td>reporter</td>
-                    <td th:text="${issue.reporter}">     </td>
-                </tr>
-                <tr>
-                    <td>report date</td>
-                    <td th:text="${issue.report date}">      </td>
-                </tr>
-
-            </table>
 
             <div id="assginD" >
                 <h4>DEV assign하기</h4>
                 <form method="post" name="assign" >
-
                     <select name="assign하기" value="assign" id="se" >
 
                         <option value="none" selected>DEV assign하기</option>

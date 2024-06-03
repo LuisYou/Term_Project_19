@@ -14,9 +14,10 @@ public interface IssueRepository extends JpaRepository<Issue, Long> {
     @Query(value = "select * from issue",nativeQuery = true)
     List<Issue> findAll();
     @Query(value = "select * from issue",nativeQuery = true)
-    Optional<Issue> findIssueById(Long id);
+    Optional<Issue> findById(Long id);
     @Query(value = "select * from issue",nativeQuery = true)
-    Optional<Issue> findIssueByTitle(String title);
+    Optional<Issue> findByTitle(String title);
+
 //    void saveIssue(Issue issue);
 //    List<Issue> findAll();
 //    Optional<Issue> findById(int id);
