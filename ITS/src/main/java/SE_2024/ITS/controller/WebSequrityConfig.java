@@ -42,6 +42,15 @@ public class WebSequrityConfig {
         manager.createUser(User.withUsername("projectLeader1").password("1234").roles("PL").build());
         manager.createUser(User.withUsername("developer1").password("1234").roles("Developer").build());
         manager.createUser(User.withUsername("tester1").password("1234").roles("Tester").build());
+
+        manager.createUser(User.withUsername("projectLeader2").password("1234").roles("PL").build());
+        manager.createUser(User.withUsername("developer2").password("1234").roles("Developer").build());
+        manager.createUser(User.withUsername("tester2").password("1234").roles("Tester").build());
+
+        manager.createUser(User.withUsername("projectLeader3").password("1234").roles("PL").build());
+        manager.createUser(User.withUsername("developer3").password("1234").roles("Developer").build());
+        manager.createUser(User.withUsername("tester3").password("1234").roles("Tester").build());
+
         return manager;
     }
     @Bean

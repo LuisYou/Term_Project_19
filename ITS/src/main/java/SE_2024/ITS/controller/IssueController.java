@@ -52,7 +52,7 @@ public class IssueController {
     }
 
     @GetMapping("/admin/issueCreate")
-    @PreAuthorize("hasRole('tester')")
+    @PreAuthorize("hasRole('Tester')")
     public String createIssuePage(Model model) {
         // 이슈 생성 페이지 로직
         return "issue/issuecreate";
