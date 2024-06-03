@@ -22,13 +22,19 @@ public class IssueDto {
     private String assignee;
     private String description; //프론트(이슈 생성 페이지) 입력 필요
     private List<String> comment;
-    private String status;
+    private String status = "new";
     private String priority; //프론트(이슈 생성 페이지) 입력 필요
     public Issue toEntity(){
         return Issue.builder()
                 .title(title)
+                .reporter(reporter)
                 .description(description)
+                .status(status)
                 .priority(priority)
                 .build();
     }
+//    public Issue toUpdateEntity(){
+//        return Issue.builder()
+//                .id(IssueDto.getId());
+//    }
 }

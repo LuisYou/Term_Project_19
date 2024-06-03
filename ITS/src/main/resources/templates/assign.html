@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form action="/issue/update" method="post" name="assignForm">
+    <input type="hidden" name="id" th:value="${issueAssign.id}" readonly> <br>
+    <input type="text" name="reporter" th:value="${issueAssign.reporter}" readonly>
+    <input type="test" name="role" id="userRole"> <br>
+    <input type="text" name="title" th:value="${issueAssign.title}" readonly> <br>
+    <textarea name="comment" cols="30" rows="20" th:text="${issueAssign.comment}"></textarea>
+    <input type="hidden" name="reportedDate" th:value="${issueAssign.reportedDate}">
+    <input type="button" value="상태변경" onclick="issueAssign()">
+</form>
+<script th:inline="javascript">
+<!--  const listReq = () => {-->
+<!--      console.log("목록 요청");-->
+<!--      location.href= "/issue/";-->
+<!--    }-->
+<!--  const updateReq = () => {-->
+<!--      console.log("수정요청");-->
+<!--      const id = [[${issue.id}]];-->
+<!--      location.href = "/issue/update/" + id;-->
+<!--      }-->
+  const issueAssign = () => {
+    const role = [[${issueAssign.userRole]];
+    const inputPass = document.getElementById("userRole").value;
+    if(role == inputPass){
+    document.updateForm.submit();
+    } else {
+    alert("권한이 없습니다!");
+    }
+</script>
+</body>
+</html>

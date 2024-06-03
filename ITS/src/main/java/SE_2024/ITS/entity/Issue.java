@@ -47,5 +47,6 @@ public class Issue {
         this.title = title;
         this.description = description;
         this.priority = priority;
+        this.status = "new";
     }
 }

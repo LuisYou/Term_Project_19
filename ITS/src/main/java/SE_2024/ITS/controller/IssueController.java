@@ -3,6 +3,10 @@ package SE_2024.ITS.controller;
 import SE_2024.ITS.Service.IssueServiceImpl;
 import SE_2024.ITS.dto.IssueDto;
 import SE_2024.ITS.entity.Issue;
+import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -24,6 +28,9 @@ public class IssueController {
     }
     @PostMapping("/createOk")
     public String createIssue(IssueDto issueDto){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentUsername = authentication.getName();
+        issueDto.setReporter(currentUsername);
         issueService.saveIssue(issueDto);
         System.out.println("============================SAVE ISSUE=================================");
         return "redirect:/issueCreate";
@@ -38,27 +45,53 @@ public class IssueController {
         System.out.println("=======================findAll====================");
         return "issue/issuelist";
     }
-    @GetMapping("/issueInfo") //localhost:8080/issueInfo?id=1
-    public String issueInfo(Long id, Model model){
-        System.out.println("===========================fff==================");
+    @GetMapping("issueInfo/{id}") //localhost:8080/issueInfo?id=1
+    public String issueInfo(@PathVariable Long id, Model model){
         model.addAttribute("issueInfo", issueService.findById(id));
-        System.out.println("===============sssssssss===========================");
         return "issue/issueinfo";
     }
-    @PostMapping("/issue/{no}")
-    public String issueSearch(@PathVariable int no){
-        String view = null;
-        switch(no){
-            case 1:
-                view = "issue/issueSearchAll";
-                break;
-            case 2:
-                view = "issue/issueSarchKeyword";
-                break;
-        }
-        return view;
+
+    @GetMapping("/admin/issueCreate")
+    @PreAuthorize("hasRole('tester')")
+    public String createIssuePage(Model model) {
+        // 이슈 생성 페이지 로직
+        return "issue/issuecreate";
     }
-    @PostMapping(value="send", params="a")
+    @ExceptionHandler(AccessDeniedException.class)
+    public ModelAndView handleAccessDeniedException(AccessDeniedException ex) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("error/access-denied");
+        modelAndView.addObject("error", ex.getMessage());
+        return modelAndView;
+    }
+//    @GetMapping("issueInfo/{id}")
+//    public String issueSearchById(@PathVariable Long id, Model model){
+//        model.addAttribute("issueInfo", issueService.findById(id));
+//        return "issueinfo";
+//    }
+
+
+
+
+
+//    @PostMapping("/issue/{no}")
+//    public String issueSearch(@PathVariable int no){
+//        String view = null;
+//        switch(no){
+//            case 1:
+//                view = "issue/issueSearchAll";
+//                break;
+//            case 2:
+//                view = "issue/issueSarchKeyword";
+//                break;
+//        }
+//        return view;
+//    }
+    @GetMapping("/assign/{id}")
+    public String updateForm(@PathVariable Long id, Model model){
+        model.addAttribute("assign", issueService.findById(id));
+        return "assign";
+    }
 
 
 

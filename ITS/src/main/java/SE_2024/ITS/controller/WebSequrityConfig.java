@@ -19,21 +19,29 @@ import org.springframework.security.web.SecurityFilterChain;
 public class WebSequrityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http)throws Exception{
-        http.authorizeHttpRequests((authorizeRequests)-> authorizeRequests
-                        .requestMatchers("api1").hasRole("PL")
-                        .requestMatchers("api2").hasRole("Tester")
-                        .requestMatchers("api3").hasRole("Developer")
+        http.csrf(csrf->csrf.disable())
+                .authorizeHttpRequests((authorizeRequests)-> authorizeRequests
+                        .requestMatchers("/projectCreate").hasRole("PL")
+                        .requestMatchers("/issueCreate").hasRole("Tester")
+                        .requestMatchers("/createComment").hasRole("Developer")
                         .anyRequest().authenticated())
                 .formLogin((formLogin)->formLogin
                         .usernameParameter("username")
                         .passwordParameter("password")
-                        .defaultSuccessUrl("/", true));
+                        .defaultSuccessUrl("/home", true))
+                .logout((logout)->logout
+                        .logoutUrl("/logout")
+                        .logoutSuccessUrl("/home")
+                        .invalidateHttpSession(true)
+                        .deleteCookies("JSESSIONID"));
         return http.build();
     }
     @Bean
     public UserDetailsService userDetailsService(){
         InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
-        manager.createUser(User.withUsername("user").password("1234").roles("PL").build());
+        manager.createUser(User.withUsername("projectLeader1").password("1234").roles("PL").build());
+        manager.createUser(User.withUsername("developer1").password("1234").roles("Developer").build());
+        manager.createUser(User.withUsername("tester1").password("1234").roles("Tester").build());
         return manager;
     }
     @Bean

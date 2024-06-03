@@ -24,7 +24,6 @@ public class IssueServiceImpl implements IssueService{
     public List<Issue> findAll(){
         return issueRepository.findAll();
     }
-
     @Override
     public Optional<Issue> findByTitle(String title){
         return issueRepository.findByTitle(title);
@@ -33,6 +32,12 @@ public class IssueServiceImpl implements IssueService{
     public Optional<Issue> findById(Long id){
         return issueRepository.findById(id);
     }
+//    @Override
+//    public IssueDto upDate(IssueDto issueDto) {
+//        Issue issue = Issue.toUpdataEntity(issueDto);
+//        issueRepository.save(); //JPA는 issued의 id를 기준으로 그 값이 없으면 생성이고, 있으면 수정으로 인식한다. 같은 Save()메소드!
+//    }
+
 //    @Override
 //    public Optional<Issue> findByAssignee(String assignee){
 //        return issueRepository.findByAssignee(assignee);

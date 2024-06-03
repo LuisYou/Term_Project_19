@@ -28,7 +28,7 @@
     <div class="logo-container">
         <div class="logo">
             <img src='images/logo.png' width="50"></div>
-        <h1><a href="index.html">software19조</a></h1>
+        <h1><a href="/home">Issue Tracking System</a></h1>
     </div>
 
 
@@ -40,9 +40,6 @@
 
         </ul>
     </nav>
-
-
-
 
 </header>
 
@@ -69,13 +66,11 @@
                     <!-- 댓글 리스트를 반복 -->
                     <dl th:if="!{issueInfo.comment}" th:text="null"></dl>
                     <dl th:each="comment : ${issueInfo.comment}">
-
                         <dt th:text="${comment.id}">코멘트 작성자, 작성날짜</dt>
                         <dd th:text="${comment.comment}">코멘트 내용</dd>
                     </dl>
                     <hr style="border:dashed 0.1px; color:rgb(216, 216, 216)">
                 </div>
-
                 <br>
                 <hr>
                 <!-- 코멘트 작성 폼 -->

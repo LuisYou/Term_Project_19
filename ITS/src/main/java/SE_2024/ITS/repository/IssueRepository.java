@@ -11,11 +11,11 @@ import java.util.Optional;
 
 @Repository
 public interface IssueRepository extends JpaRepository<Issue, Long> {
-    @Query(value = "select * from issue",nativeQuery = true)
+//    @Query(value = "select * from issue",nativeQuery = true)
     List<Issue> findAll();
-    @Query(value = "select * from issue",nativeQuery = true)
+//    @Query(value = "select * from issue",nativeQuery = true)
     Optional<Issue> findById(Long id);
-    @Query(value = "select * from issue",nativeQuery = true)
+//    @Query(value = "select * from issue",nativeQuery = true)
     Optional<Issue> findByTitle(String title);
 
 //    void saveIssue(Issue issue);
